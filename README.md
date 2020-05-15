@@ -161,7 +161,7 @@ David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twit
 
 Second part of Airbnb: Joann Vuong
 
-Emna Ben Hadj Messaod - [Github](https://github.com/emna7) / [Twitter](https://twitter.com/emna_hadj)
+Emna Ben Hadj Messaod - [Github](https://github.com/emna7) / [Twitter](https://twitter.com/emna_hadj)  
 Mariem Matri - [Github](https://github.com/MatriMariem) / [Twitter](https://twitter.com/MatriMariem)
 ## License
 Public Domain. No copy write protection. 
