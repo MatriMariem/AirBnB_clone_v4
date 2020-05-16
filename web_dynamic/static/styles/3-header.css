@@ -18,6 +18,6 @@ header .logo {
     width: 40px;
     margin-top: 1.1%
 }
-.available {
+#api_status.available {
     background-color: #ff545f;
 }
