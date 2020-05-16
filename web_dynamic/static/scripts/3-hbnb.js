@@ -20,10 +20,12 @@ $.getJSON(url, function (data) {
     }
     });
 $.ajax({
-  url: 'http://0.0.0.0:5001/api/v1/places_search/'
-  type: "POST",
-  data: {},
-  Content-type: application/json,
-  dataType: dataType
+  url: 'http://0.0.0.0:5001/api/v1/places_search/',
+  type: 'POST',
+  data: '{}',
+  contentType: 'application/json',
+  success: function (data) {
+    alert("success!");
+  }
 });
 });
