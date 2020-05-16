@@ -13,10 +13,10 @@ header .logo {
     background-color: #cccccc;
     float: right;
     border-radius: 50%;
-    verticle-align: middle;
     margin-right: 30px;
     height: 40px;
     width: 40px;
+    margin-top: 1.1%
 }
 .available {
     background-color: #ff545f;
