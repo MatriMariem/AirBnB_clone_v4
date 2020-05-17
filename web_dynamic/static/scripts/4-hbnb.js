@@ -19,12 +19,8 @@ $.getJSON(url, function (data) {
         $('DIV#api_status').removeClass('available');
     }
     });
-$.ajax({
-  url: 'http://0.0.0.0:5001/api/v1/places_search/',
-  type: 'POST',
-  data: '{}',
-  contentType: 'application/json',
-  success: function (data) {
+
+function deliver_places (data) {
   for (let i = 0; i < data.length; i++) {
     const name = '<h2>' + data[i].name + '</h2>';
     const price_by_night = '<div class="price_by_night">' + data[i].price_by_night + '</div>';
@@ -46,17 +42,27 @@ $.ajax({
     const article = '<article>' + title_box + info + description + '</article>';
     $('section.places').html(article);
   }
-  }
-});
+}
+$.ajax({
+  url: 'http://0.0.0.0:5001/api/v1/places_search/',
+  type: 'POST',
+  data: '{}',
+  contentType: 'application/json',
+  success: function (data) {
+  deliver_places(data);
+    }
+  });
+let d = {};
 $('button').click(function () {
-const d = {'amenities': ids};
+d = {'amenities': ids};
 $.ajax({
   url: 'http://0.0.0.0:5001/api/v1/places_search/',
   type: 'POST',
   data: JSON.stringify(d),
   contentType: 'application/json',
   success: function (data) {
-  alert('success!');
+  $('section.places').html('');
+  deliver_places(data);
   }
   });
 });
