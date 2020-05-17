@@ -6,25 +6,39 @@ $(document).ready(function () {
   const c_ids = [];
   const c_name = [];
   $('INPUT[type="checkbox"]').click(function () {
+    if($(this).hasClass("a")) {
     if ($(this).prop('checked') === true) {
-        if($(this).hasClass("a")) {
- 
       a_ids.push($(this).attr('data-id'));
-      a_name.push($(this).attr('data-name'));}
-        else if($(this).hasClass("s")) {
-      s_ids.push($(this).attr('data-id'));
-      s_name.push($(this).attr('data-name'));}
-       else if($(this).hasClass("c")) {
-      c_ids.push($(this).attr('data-id'));
-      c_name.push($(this).attr('data-name'));}
-   
+      a_name.push($(this).attr('data-name'));
     } else {
-      if($(this).hasClass("a") {
       a_ids.splice(a_ids.indexOf($(this).attr('data-id')), 1);
       a_name.splice(a_name.indexOf($(this).attr('data-name')), 1);
     }
-    $('DIV.amenities h4').text(name.join(', '));
-  });
+    $('DIV.amenities h4').text(a_name.join(', '));
+    }
+    if($(this).hasClass("s")) {
+    if ($(this).prop('checked') === true) {
+      s_ids.push($(this).attr('data-id'));
+      s_name.push($(this).attr('data-name'));
+    } else {
+      s_ids.splice(s_ids.indexOf($(this).attr('data-id')), 1);
+      s_name.splice(s_name.indexOf($(this).attr('data-name')), 1);
+    }
+    const s_c = s_name.concat(c_name);
+    $('DIV.locations h4').text(s_c.join(', '));
+    }
+    if($(this).hasClass("c")) {
+    if ($(this).prop('checked') === true) {
+      c_ids.push($(this).attr('data-id'));
+      c_name.push($(this).attr('data-name'));
+    } else {
+      c_ids.splice(c_ids.indexOf($(this).attr('data-id')), 1);
+      c_name.splice(c_name.indexOf($(this).attr('data-name')), 1);
+    }
+    const c_s = c_name.concat(s_name);
+    $('DIV.locations h4').text(c_s.join(', '));
+    }
+ });
 const url = 'http://0.0.0.0:5001/api/v1/status/';
 $.getJSON(url, function (data) {
     if (data.status === 'OK') {
@@ -68,7 +82,7 @@ $.ajax({
   });
 let d = {};
 $('button').click(function () {
-d = {'amenities': ids};
+d = {'amenities': a_ids, 'states': s_ids, 'cities': c_ids};
 $.ajax({
   url: 'http://0.0.0.0:5001/api/v1/places_search/',
   type: 'POST',
