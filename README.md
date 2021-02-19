@@ -1,7 +1,7 @@
 # AirBnB Clone
 ![hbnb](/hbnb.png)
 ## About this project
-The AirBnB_clone is the first step towards building our first full web application.\
+The AirBnB_clone is our first full web application.\
 ![finalp1](/finalp1.png)
 ![finalp2](/finalp2.png)
 ## This web application is composed by:
